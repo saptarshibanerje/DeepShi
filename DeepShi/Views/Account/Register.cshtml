@@ -1,0 +1,124 @@
+﻿@inject IStringLocalizer<RegisterViewModel> _localizer
+@model RegisterViewModel
+
+@{ ViewBag.Title = _localizer["SignIn"]; }
+
+<div class="min-h-screen bg-[url('../img/DeepShi-login-bg.jpg')] bg-cover">
+    <div class="mx-auto flex items-center justify-center rounded-xl py-12 px-4 pt-2">
+        <div class="mt-36 w-[350px] rounded-xl bg-white/10 p-8 text-white shadow-xl border border-white shadow-white/10 backdrop-blur-md hover:shadow-white/20">
+            <div>
+                <h2 class="mt-2 text-center text-3xl font-bold tracking-tight">DeepShi</h2>
+                <p class="mt-2 text-center text-sm">Version 1.0</p>
+            </div>
+            <form asp-action="Register" asp-controller="Account" method="post" id="frmRegister">
+                @Html.AntiForgeryToken()
+
+                <input type="hidden" name="remember" value="true" />
+                <div class="-space-y-px rounded-md shadow-sm grid gap-3">
+                    <div>
+                        <label asp-for="EmailId" class="sr-only">@_localizer["EmailAddress"]</label>
+                        <input asp-for="EmailId" class="relative block w-full appearance-none rounded-none rounded-t-md border border-gray-50 bg-transparent px-3 py-2 text-white  placeholder-white focus:z-10 focus:outline-none sm:text-sm" placeholder="@_localizer["EmailAddress"]">
+                        <span asp-validation-for="EmailId" class="text-danger"></span>
+
+                    </div>
+                    <div>
+                        <label asp-for="Appusers.EmployeeId" class="sr-only">@_localizer["EmployeeId"]</label>
+                        <input asp-for="Appusers.EmployeeId" class="relative block w-full appearance-none rounded-none rounded-t-md border border-gray-50 bg-transparent px-3 py-2 text-white  placeholder-white focus:z-10 focus:outline-none sm:text-sm" placeholder="@_localizer["EmployeeId"]">
+                        <span asp-validation-for="Appusers.EmployeeId" class="text-danger"></span>
+
+                    </div>
+                    <div>
+                        <label asp-for="Appusers.Department" class="sr-only">@_localizer["Department"]</label>
+                        <input asp-for="Appusers.Department" class="relative block w-full appearance-none rounded-none rounded-t-md border border-gray-50 bg-transparent px-3 py-2 text-white  placeholder-white focus:z-10 focus:outline-none sm:text-sm alphanumeric" placeholder="@_localizer["Department"]">
+                        <div class="invalid-feedback"> <span asp-validation-for="Appusers.Department" class="text-danger"></span></div>
+                    </div>
+                    <div>
+                        <button type="submit" class="group relative flex w-full justify-center rounded-md border border-transparent bg-white/20 hover:shadow-xl hover:shadow-black/10 py-2 px-4 text-sm font-semibold text-white hover:bg-white/20 focus:outline-none">Create</button>
+                    </div>
+                </div>
+
+            </form>
+        </div>
+    </div>
+</div>
+
+
+
+@*
+
+        <div class="container-fluid p-0 h-100 w-100 m-0">
+            <div class="row d-flex" style="margin-top:60px">
+                <div class="col-lg-8">
+                    <img src="~/img/login-side-new.jpg" class="" alt="" width="1000" height="650">
+                </div>
+                <div class="col-lg-4">
+                    <div class="sign-wrapper mg-lg-l-50 mg-xl-l-60 " style="margin-top:20%;">
+                        <div class="wd-100p">
+                            <h3 class="tx-color-01 mg-b-10">@_localizer["SignInHead"]</h3>
+                            <p class="tx-color-03 tx-16 mg-b-10">@_localizer["WelcomeGreeting"]</p>
+                            <img src="~/img/Logo.png" class="mx-auto d-block mg-b-10" height="80" />
+                            <form asp-action="Register" asp-controller="Account" method="post" id="frmRegister">
+
+                                @Html.AntiForgeryToken()
+
+                                <div class="form-group">
+                                    <label asp-for="EmailId">@_localizer["EmailAddress"]</label>
+                                    <input asp-for="EmailId" class="form-control alphanumeric" placeholder="e.g. JOHN@DeepShi.IN">
+                                     <span asp-validation-for="EmailId" class="text-danger"></span>
+                                </div>
+
+                                <div class="form-group">
+                                    <label asp-for="Appusers.EmployeeId">@_localizer["EmployeeId"]</label>
+                                    <input asp-for="Appusers.EmployeeId" class="form-control numeric" placeholder="e.g. 503">
+                                    <span asp-validation-for="Appusers.EmployeeId" class="text-danger"></span>
+                                </div>
+
+                                <div class="form-group">
+                                    <label asp-for="Appusers.Department">@_localizer["Department"]</label>
+                                    <input asp-for="Appusers.Department" class="form-control alphanumeric" placeholder="e.g. D&A">
+                                    <div class="invalid-feedback"> <span asp-validation-for="Appusers.Department" class="text-danger"></span></div>
+
+                                </div>
+
+                                @*<div class="form-group row text-danger" asp-validation-summary="All"></div>
+    <div class="form-group row">
+        <div class="col-sm-10"> <button type="submit" class="btn btn-primary">Create</button></div>
+    </div>
+
+
+    @*<div class="form-group">
+                <input type="hidden" asp-for="" />
+
+                @Html.LabelFor(m => m.UserLoginModel.LoginId, Model?.UserLoginModel?.LoginMode == "EMAIL" ? _localizer["EmailAddress"] : _localizer["LoginId"], new { @class = "mandatory" })
+
+                @Html.TextBoxFor(m => m.UserLoginModel.LoginId, new
+                {
+                    @id = "LoginId",
+                    @type = (Model?.UserLoginModel?.LoginMode == "EMAIL" ? "email" : "text"),
+                    @placeholder = (Model?.UserLoginModel?.LoginMode == "EMAIL" ? _localizer["EmailIdPlaceHolder"] : _localizer["LoginIdPlaceHolder"]),
+                    @max_length = (Model?.UserLoginModel?.LoginMode == "EMAIL" ? "100" : "12"),
+                    @class = "form-control"
+                })
+
+            </div>
+            <div class="form-group">
+                <div class="d-flex justify-content-between mg-b-5">
+                    @Html.LabelFor(m => m.UserLoginModel.Password, _localizer["Password"], new { @class = "mg-b-0-f mandatory" })
+                    <a href="#" tabindex="4" class="tx-13" data-toggle="modal" id="btnForgotPassword">@_localizer["ForgotPassword"]</a>
+                </div>
+                @Html.TextBoxFor(m => m.UserLoginModel.Password, new { @type = "password", @placeholder = _localizer["PasswordPlaceHolder"], @max_length = "30", @class = "form-control" })
+            </div>
+            <button type="submit" class="btn btn-brand-02 btn-block">@_localizer["SignIn"]</button>
+
+            <div style="display:none;">
+                @Html.ValidationSummary(false, "", new { @class = "text-danger validation-summary-errors" })
+            </div>
+                            </form>
+                        </div>
+                    </div><!-- sign-wrapper -->
+                </div>
+            </div>
+        </div>
+
+
+*@

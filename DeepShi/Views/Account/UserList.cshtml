@@ -1,0 +1,64 @@
+﻿@model RegisterViewModel
+@inject IStringLocalizer<RegisterViewModel> _localizer
+@{ Layout = "~/Areas/User/Views/Shared/_Layout.cshtml"; }
+<div class="row">
+    <div class="col-md-12">
+        <div class="card">
+            <div class="card-header">
+                <div class="d-flex justify-content-between align-items-center mb-1">
+                    <h5 class="card-title mb-0">Lists Of Users</h5>
+                    <a class="nav-link float-right btn btn-primary" style="display:inline-flex" asp-action="CreateUser" asp-controller="Account"><i class="material-icons add">add</i>Create New User</a>
+                </div>
+            </div>
+            <!-- /.card-header -->
+            <div class="card-body p-2 ">
+                <div class="tableFixHead">
+                    <table class="table table-bordered border-primary table-fixed" id="listtable">
+                        <thead>
+                            <tr>
+                                <th class="text-center">Sl No</th>
+                                <th class="text-center">User Name</th>
+                                <th class="text-center">Email</th>
+                                <th class="text-center">Department</th>
+                                <th class="text-center">Divison</th>
+                                <th class="text-center">Designation</th>
+                                <th class="text-center">Is Email Confirmed</th>
+                                <th class="text-center">Action</th>
+                            </tr>
+                        </thead>
+
+                        <tbody>
+                            @{ int i = 1;}
+                            @foreach (var appuser in Model.AppUserList)
+                            {
+                                <tr>
+                                    <td class="text-center">@(i).</td>
+                                    <td>@appuser.EmpName</td>
+                                    <td>
+                                        @appuser.EmailId
+                                    </td>
+                                    <td>
+                                        @appuser.Department
+                                    </td>
+                                    <td> @appuser.EmpDivision</td>
+                                    <td> @appuser.EmpDesignation</td>
+                                    <td> @appuser.IsConfirmedEmail</td>
+                                    <td class="justify-content-center text-center" style="width:70px; vertical-align:middle;">
+                                        <a class="edit" asp-area="Master" asp-action="Menu" asp-controller="Menu" asp-route-id="@appuser.EmailId" data-toggle="tooltip" data-placement="top" title="Edit" style="white-space: nowrap;">
+                                            <i class="material-icons">edit</i>
+                                        </a>
+                                        <form asp-area="Master" asp-action="Delete" asp-controller="Menu" asp-route-id="@appuser.EmailId" method="post" asp-antiforgery="true"> <button class="delete" type="submit" data-usefor="del" id="btn_delete_@appuser.EmailId"><i class="material-icons">delete</i></button></form>
+                                    </td>
+                                </tr>
+                                i++;
+                            }
+                        </tbody>
+
+                    </table>
+                </div>
+            </div>
+            <!-- /.card-body -->
+        </div>
+
+    </div>
+</div>

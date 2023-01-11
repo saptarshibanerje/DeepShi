@@ -1,0 +1,42 @@
+﻿
+<style>
+    .error-template {
+        padding: 40px 15px;
+        text-align: center;
+    }
+
+    .error-actions {
+        margin-top: 15px;
+        margin-bottom: 15px;
+    }
+
+        .error-actions .btn {
+            margin-right: 10px;
+        }
+</style>
+
+<div class="container-fluid p-0 h-100 w-100 m-0">
+    <div class="row d-flex" style="margin-top:60px">
+        <div class="col-md-12">
+            <div class="error-template">
+                <h1>
+                    DeepShi Error
+                </h1>
+                <hr />
+                <div class="alert-danger alert">
+                    @ViewBag.ExceptionPath
+                </div>
+                <hr />
+                <div class="alert-danger alert">
+                    @ViewBag.ErrorMessage
+                </div>
+                <hr />
+                <div class="alert-danger alert">
+                    @ViewBag.StackTrace
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+

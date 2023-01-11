@@ -1,0 +1,91 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- Meta -->
+    <meta name="description" content="INTEGRATED PROJECT MANAGEMENT SYSTEM">
+    <meta name="author" content="DeepShi">
+    <title>@((string.IsNullOrWhiteSpace(ViewBag.Title) ? "" : ViewBag.Title + " - ") + _configuration.GetSection("AppConfig")["AppTitle"])</title>
+    <!-- vendor css -->
+    <link href="~/lib/font-awesome/css/all.min.css" rel="stylesheet">
+    <link href="~/lib/sweetalert/dist/sweetalert2.min.css" rel="stylesheet" />
+    <link href="~/lib/flag-icon/css/flag-icon.min.css" rel="stylesheet">
+    <link href="~/lib/bootstrap/dist/css/bootstrap.css" rel="stylesheet" />
+
+    <!-- DashForge CSS -->
+    <link rel="stylesheet" href="~/css/dashforge.css">
+    <link href="~/css/dashforge.auth.css" rel="stylesheet" />
+    <link rel="stylesheet" href="~/css/skin.cool.css">
+    <script src="~/lib/jquery/dist/jquery.js"></script>
+    <script src="~/lib/jquery-validation/dist/jquery.validate.js"></script>
+    <script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.js"></script>
+    <script src="~/lib/jquery-ajax-unobtrusive/dist/jquery.unobtrusive-ajax.js"></script>
+    <script src="~/lib/sweetalert/dist/sweetalert2.all.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.js"></script>
+    <script src="~/js/tailwind.js"></script>
+    <script src="~/js/script.js"></script>
+    <script src="~/js/Helper.js"></script>
+    <script src="~/js/Util.js"></script>
+    <script src=""></script>
+</head>
+<body>
+    <!--<header class="navbar navbar-header navbar-header-fixed">
+        <div class="navbar-brand">
+            <a href="#" class="df-logo mt-1"><img src="~/img/DeepShiLogoNew.gif" height="55" /></a>
+        </div>-->
+    <!-- navbar-brand -->
+    <!--<div class="navbar-right">
+    </div>-->
+    <!-- navbar-right -->
+    <!--</header>--><!-- navbar -->
+    @RenderBody()
+
+    @*<footer class="footer">
+            <div>
+                <span style="font-size:13px; font-weight:bold;" class="text-primary">DeepShi</span>&nbsp;&nbsp;|&nbsp;&nbsp;<span class="text-secondary">Project Management System</span>
+            </div>
+            <div>
+                <nav class="nav">
+                    <span>&copy; @DateTime.Today.Year DeepShi Ver. @_configuration.GetAppConfig("AppVersion") </span>
+                </nav>
+            </div>
+        </footer>*@
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+            fnShowAlert();
+        });
+
+        function fnShowAlert() {
+
+            var IsShowMessage = '@(TempData["IsShowMessage"])';
+            var IsConfirmMessage = '@(TempData["IsConfirmMessage"])';
+            if (IsShowMessage=="Y") {
+                if (IsConfirmMessage=="Y") {
+                     Swal.fire({
+                        type: '@(TempData["MessageType"])',
+                        title: '@(TempData["MessageTitle"])',
+                         html: "@Html.Raw(TempData["MessageBody"])",
+                         allowOutsideClick: false
+                    });
+                }
+                else {
+                    Swal.fire({
+                        type: '@(TempData["MessageType"])',
+                        title: '@(TempData["MessageTitle"])',
+                        html: "@Html.Raw(TempData["MessageBody"])",
+                        timer: 1000,
+                        showCancelButton: false,
+                        showConfirmButton: false,
+                        allowOutsideClick: false
+                    }).then(function (dismiss) { if (dismiss === 'timer') { } });
+                }
+            }
+        }
+    </script>
+
+</body>
+</html>
+

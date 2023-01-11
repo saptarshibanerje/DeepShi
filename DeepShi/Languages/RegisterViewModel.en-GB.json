@@ -1,0 +1,14 @@
+{
+  "SignIn": "Sign Up",
+  "WelcomeGreeting": "Welcome to DeepShi Project Management System",
+  "EmailAddress": "Email Address",
+  "LoginId": "Login Id",
+  "EmailIdPlaceHolder": "someone@mail.com",
+  "LoginIdPlaceHolder": "Login Id",
+  "Password": "Password",
+  "ForgotPassword": "Forgot Password",
+  "PasswordPlaceHolder": "Password",
+  "SignInHead": "Sign Up !",
+  "EmployeeId": "Employee Id",
+  "Department": "Department"
+}

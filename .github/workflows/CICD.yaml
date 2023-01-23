@@ -1,0 +1,60 @@
+name: DeepShiWeb Build and Publishing
+
+on:
+  push:
+    branches: 
+      - main
+
+env:
+   DOTNET_VERSION: '5.0.301' # The .NET SDK version to use
+
+jobs:
+  publish:
+
+    runs-on: windows-latest
+
+    steps:
+    - uses: actions/checkout@v2
+    - name: Setup .NET Core
+      uses: actions/setup-dotnet@v1
+      with:
+        dotnet-version: ${{ env.DOTNET_VERSION }}
+
+    - name: Install dependencies
+      run: dotnet restore
+      
+    - name: Build And Publish
+      run: |
+        cd DeepShi
+        dotnet build --configuration Release --no-restore
+        dotnet publish -c Release -o ../DeepShiPublish --self-contained false /p:UseAppHost=true
+    - name: 📂 Sync files
+      # uses: ChristopheLav/iis-deploy@v1
+      # with:
+      #   website-name: 'deepshi.in'
+      #   msdeploy-service-url: ${{ secrets.MSDEPLOY_URL }}
+      #   msdeploy-username: ph14172779162
+      #   msdeploy-password: ${{ secrets.FTP_PASSWORD }}
+      #   source-path: ../DeepShi/DeepShiPublish/
+
+       uses: SamKirkland/FTP-Deploy-Action@4.3.0
+       with:
+         server: deepshi.in
+         username: ph14172779162
+         password: ${{ secrets.FTP_PASSWORD }}
+         local-dir: ../DeepShi/DeepShiPublish/  
+         server-dir: DeepShi/
+         log-level: verbose
+         security: loose
+      
+     # uses: sebastianpopp/ftp-action@releases/v2
+     # with:
+     #   host: deepshi.in
+     #   user: ph14172779162
+     #   password: ${{ secrets.FTP_PASSWORD }}
+     #   localDir: "../DeepShiWeb/DeepShiWebPublish/"
+     #   remoteDir: "DeepShi/"
+     #   log-level: verbose
+     #   security: loose
+     
+

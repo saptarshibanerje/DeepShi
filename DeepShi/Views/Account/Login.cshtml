@@ -4,112 +4,46 @@
 
 @{ ViewBag.Title = _localizer["SignIn"]; }
 
-<div class="min-h-screen bg-[url('../img/DeepShi-login-bg.jpg')] bg-cover">
-    <div class="mx-auto flex items-center justify-center rounded-xl py-12 px-4 pt-2">
-        <div class="mt-36 w-[350px] rounded-xl bg-white/10 p-8 text-white shadow-xl border border-white shadow-white/10 backdrop-blur-md hover:shadow-white/20">
-            <div>
-                <h2 class="mt-2 text-center text-3xl font-bold tracking-tight">DeepShi</h2>
-                <p class="mt-2 text-center text-sm">Version 1.0</p>
-            </div>
-            <form class="mt-8 space-y-6" asp-action="Login" asp-controller="Account" method="post" id="frmLogin">
-                @Html.AntiForgeryToken()
-                <input type="hidden" asp-for="UserLoginModel.LoginMode" />
-                <input type="hidden" name="remember" value="true" />
-                <div class="-space-y-px rounded-md shadow-sm grid gap-3">
-                    <div>
-                        @*<label for="email-address" class="sr-only">Email address</label>*@
-                        @Html.LabelFor(m => m.UserLoginModel.LoginId, Model?.UserLoginModel?.LoginMode == "EMAIL" ? _localizer["EmailAddress"] : _localizer["LoginId"], new { @class = "sr-only" })
-                        @*<input id="email-address" name="email" type="email" autocomplete="email" required class="relative block w-full appearance-none rounded-none rounded-t-md border border-gray-50 bg-transparent px-3 py-2 text-white  placeholder-white focus:z-10 focus:outline-none sm:text-sm" placeholder="Email address" />*@
-                        @Html.TextBoxFor(m => m.UserLoginModel.LoginId, new
-                        {
-                            @id = "LoginId",
-                            @type = (Model?.UserLoginModel?.LoginMode == "EMAIL" ? "email" : "text"),
-                            @placeholder = (Model?.UserLoginModel?.LoginMode == "EMAIL" ? _localizer["EmailIdPlaceHolder"] : _localizer["LoginIdPlaceHolder"]),
-                            @max_length = (Model?.UserLoginModel?.LoginMode == "EMAIL" ? "100" : "12"),
-                            @class = "relative block w-full appearance-none rounded-none rounded-t-md border border-gray-50 bg-transparent px-3 py-2 text-white  placeholder-white focus:z-10 focus:outline-none sm:text-sm"
-                        })
-                    </div>
-                    <div>
-                        @*<label for="password" class="sr-only">Password</label>*@
-                        @Html.LabelFor(m => m.UserLoginModel.Password, _localizer["Password"], new { @class = "sr-only" })
-                        @*<input id="password" name="password" type="password" autocomplete="current-password" required class="relative block w-full appearance-none rounded-none rounded-b-md border border-gray-50 bg-transparent px-3 py-2 placeholder-white  text-white  focus:z-10 focus:outline-none sm:text-sm" placeholder="Password" />*@
 
-                        @Html.TextBoxFor(m => m.UserLoginModel.Password, new { @type = "password", @placeholder = _localizer["PasswordPlaceHolder"], @max_length = "30", @class = "relative block w-full appearance-none rounded-none rounded-b-md border border-gray-50 bg-transparent px-3 py-2 placeholder-white  text-white  focus:z-10 focus:outline-none sm:text-sm" })
-                    </div>
-                </div>
+<div class="card mb-3">
 
-                <div class="flex items-center justify-between">
-                    <div class="flex items-center">
-                        <div class="hidden">
-                            <input id="remember-me" name="remember-me" type="checkbox" class="h-4 w-4 rounded border-gray-100 focus:ring-indigo-500" />
-                            <label for="remember-me" class="ml-2 block text-sm">Remember me</label>
-                        </div>
-                    </div>
+    <div class="card-body">
 
-                    <div class="text-sm">
-                        <a asp-action="ForgetPassword" asp-area="" asp-controller="Account" tabindex="4" class="tx-13" >@_localizer["ForgotPassword"]</a>
-                        @*<button type="button"  class="font-medium text-white/70 hover:text-white"> @_localizer["ForgotPassword"]</button>*@
-                    </div>
-                </div>
-
-                <div>
-                    <button type="submit" class="group relative flex w-full justify-center rounded-md border border-transparent bg-white/20 hover:shadow-xl hover:shadow-black/10 py-2 px-4 text-sm font-semibold text-white hover:bg-white/20 focus:outline-none">@_localizer["SignIn"]</button>
-                </div>
-            </form>
+        <div class="pt-4 pb-2">
+            <h5 class="card-title text-center pb-0 fs-4">Login to Your Account</h5>
+            <p class="text-center small">Enter your username & password to login</p>
         </div>
+
+        <form class="row g-3 needs-validation" novalidate>
+
+            <div class="col-12">
+                <label for="yourUsername" class="form-label">Username</label>
+                <div class="input-group has-validation">
+                    <span class="input-group-text" id="inputGroupPrepend">@@</span>
+                    <input type="text" name="username" class="form-control" id="yourUsername" required>
+                    <div class="invalid-feedback">Please enter your username.</div>
+                </div>
+            </div>
+
+            <div class="col-12">
+                <label for="yourPassword" class="form-label">Password</label>
+                <input type="password" name="password" class="form-control" id="yourPassword" required>
+                <div class="invalid-feedback">Please enter your password!</div>
+            </div>
+
+            <div class="col-12">
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" name="remember" value="true" id="rememberMe">
+                    <label class="form-check-label" for="rememberMe">Remember me</label>
+                </div>
+            </div>
+            <div class="col-12">
+                <button class="btn btn-primary w-100" type="submit">Login</button>
+            </div>
+            <div class="col-12">
+                <p class="small mb-0">Don't have account? <a href="pages-register.html">Create an account</a></p>
+            </div>
+        </form>
+
     </div>
 </div>
-
-@*sdjhjfh
-    <div class="container-fluid p-0 h-100 w-100 m-0">
-        <div class="row d-flex" style="margin-top:60px">
-            <div class="col-lg-8">
-                <img src="~/img/login-side-new.jpg" class="" alt="" width="1000" height="650">
-            </div>
-            <div class="col-lg-4">
-                <div class="sign-wrapper mg-lg-l-50 mg-xl-l-60 " style="margin-top:20%;">
-                    <div class="wd-100p">
-                        <h3 class="tx-color-01 mg-b-10">@_localizer["SignInHead"]</h3>
-                        <p class="tx-color-03 tx-16 mg-b-10">@_localizer["WelcomeGreeting"]</p>
-                        <img src="~/img/Logo.png" class="mx-auto d-block mg-b-10" height="80" />
-                        <form asp-action="Login" asp-controller="Account" method="post" id="frmLogin">
-
-                            @Html.AntiForgeryToken()
-
-                            <div class="form-group">
-                                <input type="hidden" asp-for="UserLoginModel.LoginMode" />
-
-                                @Html.LabelFor(m => m.UserLoginModel.LoginId, Model?.UserLoginModel?.LoginMode == "EMAIL" ? _localizer["EmailAddress"] : _localizer["LoginId"], new { @class = "mandatory" })
-
-                                @Html.TextBoxFor(m => m.UserLoginModel.LoginId, new
-                                {
-                                    @id = "LoginId",
-                                    @type = (Model?.UserLoginModel?.LoginMode == "EMAIL" ? "email" : "text"),
-                                    @placeholder = (Model?.UserLoginModel?.LoginMode == "EMAIL" ? _localizer["EmailIdPlaceHolder"] : _localizer["LoginIdPlaceHolder"]),
-                                    @max_length = (Model?.UserLoginModel?.LoginMode == "EMAIL" ? "100" : "12"),
-                                    @class = "form-control"
-                                })
-
-                            </div>
-                            <div class="form-group">
-                                <div class="d-flex justify-content-between mg-b-5">
-                                    @Html.LabelFor(m => m.UserLoginModel.Password, _localizer["Password"], new { @class = "mg-b-0-f mandatory" })
-                                    <a href="#" tabindex="4" class="tx-13" data-toggle="modal" id="btnForgotPassword">@_localizer["ForgotPassword"]</a>
-                                </div>
-                                @Html.TextBoxFor(m => m.UserLoginModel.Password, new { @type = "password", @placeholder = _localizer["PasswordPlaceHolder"], @max_length = "30", @class = "form-control" })
-                            </div>
-                            <button type="submit" class="btn btn-brand-02 btn-block">@_localizer["SignIn"]</button>
-
-                            <div style="display:none;">
-                                @Html.ValidationSummary(false, "", new { @class = "text-danger validation-summary-errors" })
-                            </div>
-                        </form>
-                    </div>
-                </div><!-- sign-wrapper -->
-            </div>
-        </div>
-    </div>
-
-
-
-*@

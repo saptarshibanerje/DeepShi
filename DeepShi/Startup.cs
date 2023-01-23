@@ -142,7 +142,7 @@ namespace DeepShi
 
                 endpoints.MapControllerRoute(
                     name: "default",
-                    pattern: "{controller=Account}/{action=Login}/{id?}");
+                    pattern: "{controller=ComingSoon}/{action=index}/{id?}");
             });
         }
     }

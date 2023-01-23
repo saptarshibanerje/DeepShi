@@ -13,7 +13,7 @@ namespace DeepShi.ViewModels
 
         public ComingSoonViewModel()
         {
-            LaunchDate = DateTime.Now.AddDays(1).ToString("yyyy/MM/dd");
+            LaunchDate = "2023/01/26"; //DateTime.Now.AddDays(1).ToString("yyyy/MM/dd");
         }
 
     }

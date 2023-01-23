@@ -14,6 +14,7 @@ using System.Net.Http.Json;
 using System.Threading.Tasks;
 using DeepShiShared;
 using DeepShi.ViewModels;
+using DeepShiShared.Models;
 
 namespace DeepShi.Controllers
 {
@@ -51,12 +52,13 @@ namespace DeepShi.Controllers
         [HttpPost]
         public IActionResult GetNotified(ComingSoonViewModel model)
         {
+            string returnMessage = "";
 
             if (ModelState.IsValid)
             {
-                WriteToTextFile("\n" + DateTime.Now.ToString("dd/MM/yyyy") + " From IP: " + _httpContextAccessor.HttpContext.Connection.RemoteIpAddress.ToString() + "---> Name: " + model.Name + ". Mobile No: " + model.MobileNo.ToString());
+                returnMessage = WriteToTextFile("\n" + DateTime.Now.ToString("dd/MM/yyyy") + " From IP: " + _httpContextAccessor.HttpContext.Connection.RemoteIpAddress.ToString() + "---> Name: " + model.Name + ". Mobile No: " + model.MobileNo.ToString());
             }
-
+            AppNotification.ShowMessage(this, returnMessage, MessageType.Success);
             return RedirectToAction("Index");
         }
 

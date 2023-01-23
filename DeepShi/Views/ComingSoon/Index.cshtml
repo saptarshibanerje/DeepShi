@@ -21,7 +21,7 @@
 
     <link href="~/assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
     <link href="~/assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
-
+    <link href="~/lib/limonte-sweetalert2/sweetalert2.css" rel="stylesheet" />
     <link href="assets/css/style.css" rel="stylesheet">
 </head>
 
@@ -47,7 +47,7 @@
         <div class="hero-container">
             <h1>DeepShi</h1>
             <h2>We'll ready to launch after</h2>
-           
+
             <div class="countdown" data-count="@Model.LaunchDate" data-template="%d Days %hh :%mm :%ss"></div>
 
             <form asp-action="GetNotified" asp-controller="ComingSoon" method="post" id="frmGetNotified" class="php-email-form" style="margin-top: 145px;padding-bottom: 12px">
@@ -147,6 +147,40 @@
     <!-- Template Main JS File -->
     <script src="~/assets/js/main.js"></script>
     <script src="~/js/Util.js"></script>
+    <script src="~/lib/limonte-sweetalert2/sweetalert2.js"></script>
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+            fnShowAlert();
+        });
+
+        function fnShowAlert() {
+
+            var IsShowMessage = '@(TempData["IsShowMessage"])';
+            var IsConfirmMessage = '@(TempData["IsConfirmMessage"])';
+            if (IsShowMessage=="Y") {
+                if (IsConfirmMessage=="Y") {
+                     Swal.fire({
+                         icon: '@(TempData["MessageType"])',
+                        title: '@(TempData["MessageTitle"])',
+                         html: "@Html.Raw(TempData["MessageBody"])",
+                         allowOutsideClick: false
+                    });
+                }
+                else {
+                    Swal.fire({
+                        icon: '@(TempData["MessageType"])',
+                        title: '@(TempData["MessageTitle"])',
+                        html: "@Html.Raw(TempData["MessageBody"])",
+                        timer: 1000,
+                        showCancelButton: false,
+                        showConfirmButton: false,
+                        allowOutsideClick: false
+                    }).then(function (dismiss) { if (dismiss === 'timer') { } });
+                }
+            }
+        }
+    </script>
 </body>
 
 </html>

@@ -37,24 +37,24 @@ jobs:
       #   msdeploy-password: ${{ secrets.FTP_PASSWORD }}
       #   source-path: ../DeepShi/DeepShiPublish/
 
-       uses: SamKirkland/FTP-Deploy-Action@4.3.0
-       with:
-         server: deepshi.in
-         username: ph14172779162
-         password: ${{ secrets.FTP_PASSWORD }}
-         local-dir: ../DeepShi/DeepShiPublish/  
-         server-dir: DeepShi/
-         log-level: verbose
-         security: loose
+      uses: SamKirkland/FTP-Deploy-Action@4.3.0
+      with:
+        server: deepshi.in
+        username: ph14172779162
+        password: ${{ secrets.FTP_PASSWORD }}
+        local-dir: ../DeepShi/DeepShiPublish/  
+        server-dir: DeepShi/
+        log-level: verbose
+        security: loose
       
-     # uses: sebastianpopp/ftp-action@releases/v2
-     # with:
-     #   host: deepshi.in
-     #   user: ph14172779162
-     #   password: ${{ secrets.FTP_PASSWORD }}
-     #   localDir: "../DeepShiWeb/DeepShiWebPublish/"
-     #   remoteDir: "DeepShi/"
-     #   log-level: verbose
-     #   security: loose
+    #  uses: sebastianpopp/ftp-action@releases/v2
+    #  with:
+    #    host: deepshi.in
+    #    user: ph14172779162
+    #    password: ${{ secrets.FTP_PASSWORD }}
+    #    localDir: "../DeepShiWeb/DeepShiWebPublish/"
+    #    remoteDir: "DeepShi/"
+    #    log-level: verbose
+    #    security: loose
      
 

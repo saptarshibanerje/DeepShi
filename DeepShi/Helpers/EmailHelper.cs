@@ -8,7 +8,7 @@ using System.Net;
 using System.Net.Mail;
 using System.Threading.Tasks;
 
-namespace DeepShiApp.Helpers
+namespace DeepShi.Helpers
 {
     public class EmailHelper
     {

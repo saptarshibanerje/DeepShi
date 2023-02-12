@@ -1,4 +1,4 @@
-﻿using DeepShiApp.Models;
+﻿using DeepShi.Models;
 using DeepShiShared;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Diagnostics;
@@ -13,7 +13,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace DeepShiApp.Controllers
+namespace DeepShi.Controllers
 {
     [AllowAnonymous]
     public class ErrorController : BaseController

@@ -1,6 +1,6 @@
 using System;
 
-namespace DeepShiApp.Models
+namespace DeepShi.Models
 {
     public class ErrorViewModel
     {

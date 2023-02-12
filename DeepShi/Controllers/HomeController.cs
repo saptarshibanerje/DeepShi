@@ -1,4 +1,4 @@
-﻿using DeepShiApp.Models;
+﻿using DeepShi.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using System;
@@ -7,7 +7,7 @@ using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace DeepShiApp.Controllers
+namespace DeepShi.Controllers
 {
     public class HomeController : Controller
     {

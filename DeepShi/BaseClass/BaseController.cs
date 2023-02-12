@@ -6,7 +6,7 @@ using System.Globalization;
 using System.Threading;
 using Microsoft.AspNetCore.DataProtection;
 
-namespace DeepShiApp
+namespace DeepShi
 {
     [Authorize(AuthorizationType.User)]
     public partial class BaseController : Controller

@@ -3,16 +3,16 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Logging;
-using DeepShiApp.ViewModels;
+using DeepShi.ViewModels;
 using DeepShiShared;
 using DeepShiShared.Models;
 using System;
-using DeepShiApp;
+using DeepShi;
 using System.Threading.Tasks;
 using System.Net.Http;
 using Microsoft.Extensions.Localization;
 using System.Net.Http.Json;
-using DeepShiApp.Helpers;
+using DeepShi.Helpers;
 using System.Net.Mail;
 using System.IO;
 using System.Net;
@@ -23,7 +23,7 @@ using System.Web;
 using System.Collections.Generic;
 using DeepShiEntityModels.Models;
 
-namespace DeepShiApp.Controllers
+namespace DeepShi.Controllers
 {
     [AllowAnonymous]
     public class AccountController : BaseController

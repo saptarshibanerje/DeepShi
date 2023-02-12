@@ -8,7 +8,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Web;
 
-namespace DeepShiApp.Utilities.CustomValidator
+namespace DeepShi.Utilities.CustomValidator
 {
     public sealed class ValidSelectedItemAttribute : ValidationAttribute, IClientModelValidator
     {

@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 
 
-namespace DeepShiApp.ViewModels
+namespace DeepShi.ViewModels
 {
     public class LoginViewModel
     {

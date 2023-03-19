@@ -140,6 +140,11 @@ namespace DeepShi
                     areaName: "Transaction",
                     pattern: "Transaction/{controller=Home}/{action=Index}/{id?}/{id1?}/{id2?}/{id3?}/{id4?}/{id5?}/{id6?}");
 
+                endpoints.MapAreaControllerRoute(
+                    name: "Admin",
+                    areaName: "Admin",
+                    pattern: "Admin/{controller=Home}/{action=Index}/{id?}/{id1?}/{id2?}/{id3?}/{id4?}/{id5?}/{id6?}"
+                     );
                 endpoints.MapControllerRoute(
                     name: "default",
                     pattern: "{controller=ComingSoon}/{action=index}/{id?}");

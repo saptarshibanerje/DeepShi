@@ -23,6 +23,10 @@
 	</ItemGroup>
 
 	<ItemGroup>
+	  <Folder Include="Areas\Admin\Controllers\" />
+	  <Folder Include="Areas\Admin\Data\" />
+	  <Folder Include="Areas\Admin\Models\" />
+	  <Folder Include="Areas\Admin\Views\" />
 	  <Folder Include="Areas\Master\Controllers\" />
 	  <Folder Include="Areas\Master\Data\" />
 	  <Folder Include="Areas\Master\Models\" />
@@ -31,7 +35,6 @@
 	  <Folder Include="Areas\Transaction\Data\" />
 	  <Folder Include="Areas\Transaction\Models\" />
 	  <Folder Include="Areas\Transaction\Views\" />
-	  <Folder Include="Areas\User\Controllers\" />
 	  <Folder Include="Areas\User\Data\" />
 	  <Folder Include="Areas\User\Models\" />
 	  <Folder Include="Areas\User\ViewComponents\" />

@@ -8,6 +8,6 @@ namespace DeepShiEntityModels.Models
 {
     public class UserData
     {
-        public string CcCrBy { get; set; }
+        public string CreatedBy { get; set; }
     }
 }

@@ -19,9 +19,4 @@
     <ProjectReference Include="..\DeepShiShared\DeepShiShared.csproj" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="Data\IRepository\" />
-    <Folder Include="Data\SqlRepository\" />
-  </ItemGroup>
-
 </Project>

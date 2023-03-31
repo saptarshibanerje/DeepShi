@@ -9,11 +9,6 @@ namespace DeepShiEntityModels.Models
 {
     public class ApplicationUser : IdentityUser
     {
-        public string EmployeeId { get; set; }
-        public string Department { get; set; }
-        public string EmployeeName { get; set; }
-        public string EmpDivision { get; set; }
-      
-        public string EmpDesignation { get; set; }
+        public string MobileNo { get; set; }
     }
 }

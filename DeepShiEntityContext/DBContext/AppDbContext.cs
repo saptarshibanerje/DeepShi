@@ -12,7 +12,7 @@ namespace DeepShiEntityContext.DBContext
 {
     public class AppDbContext : IdentityDbContext<ApplicationUser>
     {
-        public static readonly string ConnectionString = "server=DeepShi-SRV-WAPSRV;database=DeepShi;User Id=SqlAdmin;Password=Server@3456;";
+        public static readonly string ConnectionString = "server=N1NWPLSK12SQL-v03.shr.prod.ams1.secureserver.net:1433;database=DeepShiDB;User Id=DeepShiAdmin;Password=95K0aeu%;";
         //public AppDbContext()
         //{
         //    //if (!optionsBuilder.IsConfigured)

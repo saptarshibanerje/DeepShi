@@ -7,6 +7,17 @@
 	</PropertyGroup>
 
 	<ItemGroup>
+	  <Compile Remove="Areas\Admin\**" />
+	  <Compile Remove="Areas\Transaction\**" />
+	  <Content Remove="Areas\Admin\**" />
+	  <Content Remove="Areas\Transaction\**" />
+	  <EmbeddedResource Remove="Areas\Admin\**" />
+	  <EmbeddedResource Remove="Areas\Transaction\**" />
+	  <None Remove="Areas\Admin\**" />
+	  <None Remove="Areas\Transaction\**" />
+	</ItemGroup>
+
+	<ItemGroup>
 		<PackageReference Include="Microsoft.AspNetCore.Mvc.Razor.RuntimeCompilation" Version="3.1.31" />
 
 		<PackageReference Include="Microsoft.AspNetCore.Authorization" Version="5.0.15" />
@@ -23,22 +34,7 @@
 	</ItemGroup>
 
 	<ItemGroup>
-	  <Folder Include="Areas\Admin\Controllers\" />
-	  <Folder Include="Areas\Admin\Data\" />
-	  <Folder Include="Areas\Admin\Models\" />
-	  <Folder Include="Areas\Admin\Views\" />
-	  <Folder Include="Areas\Master\Controllers\" />
-	  <Folder Include="Areas\Master\Data\" />
-	  <Folder Include="Areas\Master\Models\" />
-	  <Folder Include="Areas\Master\ViewModels\" />
-	  <Folder Include="Areas\Transaction\Controllers\" />
-	  <Folder Include="Areas\Transaction\Data\" />
-	  <Folder Include="Areas\Transaction\Models\" />
-	  <Folder Include="Areas\Transaction\Views\" />
-	  <Folder Include="Areas\User\Data\" />
-	  <Folder Include="Areas\User\Models\" />
-	  <Folder Include="Areas\User\ViewComponents\" />
-	  <Folder Include="Areas\User\ViewModels\" />
+	  <Folder Include="Areas\" />
 	</ItemGroup>
 
 </Project>

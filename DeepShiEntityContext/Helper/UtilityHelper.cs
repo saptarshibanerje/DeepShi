@@ -22,16 +22,16 @@ namespace DeepShiEntityContext.Helper
             IdentityRole identityRole = new IdentityRole { Name = "System", NormalizedName = "System".ToUpper() };
             ApplicationUser applicationUser = new ApplicationUser
             {
-                Department = "System",
+                //Department = "System",
                 Email = "superadmin@DeepShi.in",
-                EmployeeId = "0",
+                //EmployeeId = "0",
                 UserName = "superadmin@DeepShi.in",
                 NormalizedUserName = "superadmin@DeepShi.in".ToUpper(),
                 NormalizedEmail = "superadmin@DeepShi.in".ToUpper(),
-                PasswordHash = hasher.HashPassword(null, "Superadmin@2022#"),
-                EmpDesignation = "System",
-                EmployeeName = "DeepShi System",
-                EmpDivision = "System",
+                PasswordHash = hasher.HashPassword(null, "Superadmin@2023#"),
+                //EmpDesignation = "System",
+                //EmployeeName = "DeepShi System",
+                //EmpDivision = "System",
                 EmailConfirmed = true
 
             };

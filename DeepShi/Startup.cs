@@ -147,7 +147,7 @@ namespace DeepShi
                      );
                 endpoints.MapControllerRoute(
                     name: "default",
-                    pattern: "{controller=ComingSoon}/{action=index}/{id?}");
+                    pattern: "{controller=Home}/{action=index}/{id?}");
             });
         }
     }

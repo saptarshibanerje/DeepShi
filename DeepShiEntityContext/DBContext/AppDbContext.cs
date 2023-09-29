@@ -12,19 +12,20 @@ namespace DeepShiEntityContext.DBContext
 {
     public class AppDbContext : IdentityDbContext<ApplicationUser>
     {
-        public static readonly string ConnectionString = "server=N1NWPLSK12SQL-v03.shr.prod.ams1.secureserver.net:1433;database=DeepShiDB;User Id=DeepShiAdmin;Password=95K0aeu%;";
+        //public static readonly string ConnectionString = "server=sql.bsite.net\\MSSQL2016;database=saptarshi_deepshi;User Id=DeepShiAdmin;Password=September@2023#;";
+        public static readonly string ConnectionString = "server=DEEPSHI;database=saptarshi_deepshi;User Id=sa;Password=123456;";
+
         //public AppDbContext()
         //{
-        //    //if (!optionsBuilder.IsConfigured)
-        //    //    optionsBuilder.UseSqlServer("server=DeepShi-SRV-WAPSRV;database=DeepShi;User Id=SqlAdmin;Password=Server@3456;");
+        //    if (!optionsBuilder.IsConfigured)
+        //        optionsBuilder.UseSqlServer("server=DeepShi-SRV-WAPSRV;database=DeepShi;User Id=SqlAdmin;Password=Server@3456;");
         //}
 
         public AppDbContext(DbContextOptions<AppDbContext> options)
             : base(options)
         {
             //var optionsBuilder = new DbContextOptionsBuilder<AppDbContext>();
-            //optionsBuilder.UseSqlServer("server=DeepShi-SRV-WAPSRV;database=DeepShi1;User Id=SqlAdmin;Password=Server@3456;");
-            //return new AppDbContext(optionsBuilder.Options);
+            //optionsBuilder.UseSqlServer(ConnectionString);            
 
         }
 
@@ -47,10 +48,10 @@ namespace DeepShiEntityContext.DBContext
             base.OnModelCreating(modelBuilder);
             modelBuilder.Seed();
 
-            foreach (var foreignKey in modelBuilder.Model.GetEntityTypes().SelectMany(e => e.GetForeignKeys()))
-            {
-                foreignKey.DeleteBehavior = DeleteBehavior.Restrict;
-            }
+            //foreach (var foreignKey in modelBuilder.Model.GetEntityTypes().SelectMany(e => e.GetForeignKeys()))
+            //{
+            //    foreignKey.DeleteBehavior = DeleteBehavior.Restrict;
+            //}
         }
 
 

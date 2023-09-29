@@ -8,11 +8,11 @@ namespace DeepShiEntityContext.Data.IRepository
 {
     interface ICustomerAddressRepository
     {
-        SqlResponseBaseModel Add(CustomerAdress AddModel);
-        SqlResponseBaseModel Edit(CustomerAdress UpdateModel);
-        SqlResponseBaseModel Delete(CustomerAdress DeleteModel);
-        IEnumerable<CustomerAdress> AllAddress(string customerid);
+        SqlResponseBaseModel AddUpdateCustomerAddress(CustomerAdress AddModel);
+        SqlResponseBaseModel EditCustomerAddress(CustomerAdress UpdateModel);
+        SqlResponseBaseModel DeleteCustomerAddress(CustomerAdress DeleteModel);
+        IEnumerable<CustomerAdress> AllAddressByCustomerId(string customerid);
         IEnumerable<CustomerAdress> AllAddress();
-        CustomerAdress GetAddressById(string addressid);
+        CustomerAdress GetCustomerAddressDetailsByAdrdressId(string addressid);
     }
 }

@@ -1,17 +1,17 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 16
-VisualStudioVersion = 16.0.33130.400
+# Visual Studio Version 17
+VisualStudioVersion = 17.6.33829.357
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DeepShi", "DeepShi\DeepShi.csproj", "{2DC13CA6-F681-4C99-BF6C-33877E286333}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DeepShiShared", "DeepShiShared\DeepShiShared.csproj", "{A7EC7C75-1F0B-4396-A5DD-9E81739C5D48}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DeepShiShared", "DeepShiShared\DeepShiShared.csproj", "{A7EC7C75-1F0B-4396-A5DD-9E81739C5D48}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DeepShiEntityContext", "DeepShiEntityContext\DeepShiEntityContext.csproj", "{7EFD1CFF-3B32-4BF4-9A0C-8648014D4524}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DeepShiEntityContext", "DeepShiEntityContext\DeepShiEntityContext.csproj", "{7EFD1CFF-3B32-4BF4-9A0C-8648014D4524}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DeepShiEntityModels", "DeepShiEntityModels\DeepShiEntityModels.csproj", "{DE86A510-5245-409E-AADD-A0F0B8192854}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DeepShiEntityModels", "DeepShiEntityModels\DeepShiEntityModels.csproj", "{DE86A510-5245-409E-AADD-A0F0B8192854}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DeepShiApi", "DeepShiApi\DeepShiApi.csproj", "{08588A50-1E5F-44AC-A83D-64A4B97FD911}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DeepShiApi", "DeepShiApi\DeepShiApi.csproj", "{08588A50-1E5F-44AC-A83D-64A4B97FD911}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

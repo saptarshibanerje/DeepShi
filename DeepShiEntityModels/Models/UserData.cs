@@ -8,6 +8,6 @@ namespace DeepShiEntityModels.Models
 {
     public class UserData
     {
-        public string CreatedBy { get; set; }
+        public string LoginUserId { get; set; }
     }
 }

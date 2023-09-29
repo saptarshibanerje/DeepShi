@@ -1,9 +1,11 @@
 ﻿using DeepShiEntityModels.Models;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Configuration;
 using System;
 using System.Collections.Generic;
 using System.Data;
+using System.IO;
 using System.Linq;
 using System.Reflection;
 using System.Threading.Tasks;
@@ -12,6 +14,16 @@ namespace DeepShiEntityContext.Helper
 {
     public static class UtilityHelper
     {
+        public static string GetConnectionstring()
+        {
+            string connectionstring = string.Empty;
+            IConfigurationRoot configuration = new ConfigurationBuilder()
+                    .SetBasePath(Directory.GetCurrentDirectory())
+                    .AddJsonFile(@Directory.GetCurrentDirectory() + "/../MyCookingMaster.API/appsettings.json")
+                    .Build();
+            connectionstring = configuration.GetConnectionString("ConnectionString");
+            return connectionstring;
+        }
         public static void Seed(this ModelBuilder modelBuilder)
         {
             var hasher = new PasswordHasher<ApplicationUser>();
